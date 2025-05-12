@@ -1,0 +1,37 @@
+:root {
+	--white: #ffffff;
+	--black: #0d0802;
+
+	--primary-500: #006624;
+	--primary-800: #072d15;
+	--secondary-500: #caa44c;
+
+	--error: #e74c3c;
+
+	--gray-100: #f9f9f9;
+	--gray-500: #a0a0a0;
+
+	--overlay-black: rgba(0, 0, 0, 0.6);
+	--overlay-primary: rgba(0, 102, 36, 0.851);
+
+	--input-height: 55px;
+	--input-height-small: 50px;
+	--button-height: 70px;
+
+	--font-family-base: 'Inter', sans-serif;
+	--font-family-accent: 'Podkova', serif;
+
+	--container-width: 1410px;
+	--container-padding-x: 17px;
+
+	--transition-duration: 0.2s;
+	--transition-timing-function: ease-in-out;
+
+	--section-margin-bottom: 70px;
+	--header-height: 125px;
+
+	@include mobile {
+		--section-margin-bottom: 30px;
+		--header-height: 78px;
+	}
+}

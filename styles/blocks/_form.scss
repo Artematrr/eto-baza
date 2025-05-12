@@ -1,0 +1,270 @@
+.form {
+	&__label {
+		@include fluid-text(16, 14);
+
+		display: inline-block;
+		color: var(--black);
+		font-family: Inter;
+		font-weight: 400;
+		line-height: 1.55;
+	}
+
+	&__input-container {
+		position: relative;
+
+		.form__input {
+			padding-left: 57px;
+
+			@include mobile {
+				padding-left: 42px;
+			}
+		}
+
+		.form__custom-select-trigger {
+			padding-left: 57px;
+
+			@include mobile {
+				padding-left: 42px;
+			}
+		}
+	}
+
+	&__input-icon {
+		position: absolute;
+		top: 50%;
+		left: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		max-width: 20px;
+		transform: translateY(-50%);
+		z-index: 3;
+		pointer-events: none;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		@include mobile {
+			left: 15px;
+		}
+	}
+
+	&__input {
+		@include fluid-text(16, 14);
+
+		position: relative;
+		width: 100%;
+		height: var(--input-height);
+		padding: 15px 25px;
+		border: 1px solid var(--gray-500);
+		color: var(--black);
+		background-color: var(--white);
+		transition: border-color var(--transition-duration)
+				var(--transition-timing-function),
+			color var(--transition-duration) var(--transition-timing-function);
+
+		&:focus {
+			border-color: var(--primary-800);
+			outline: none;
+		}
+
+		&::placeholder {
+			color: var(--gray-500);
+		}
+
+		&.error {
+			border-color: var(--error);
+			color: var(--error);
+
+			&::placeholder {
+				color: var(--error);
+			}
+		}
+
+		&[type='date'] {
+			&::-webkit-calendar-picker-indicator {
+				opacity: 0;
+				position: absolute;
+				right: 10px;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+
+			&:after {
+				@include square(10px);
+
+				content: '';
+				position: absolute;
+				right: 30px;
+				top: 20px;
+				display: block;
+				border-left: 2px solid var(--black);
+				border-top: 2px solid var(--black);
+				rotate: 225deg;
+				pointer-events: none;
+
+				@include mobile {
+					right: 20px;
+					top: 10px;
+				}
+			}
+
+			&.is-active:after {
+				transform: rotate(180deg);
+				top: 25px;
+
+				@include mobile {
+					top: 15px;
+				}
+			}
+		}
+
+		@include mobile {
+			height: 35px;
+			padding: 8px 15px;
+		}
+	}
+
+	&__textarea {
+		@extend .form__input;
+
+		min-height: 120px;
+		padding: 15px 25px;
+		resize: vertical;
+	}
+
+	input[type='checkbox'] {
+		@include visually-hidden;
+
+		& + label {
+			position: relative;
+			padding-left: 35px;
+			cursor: pointer;
+			user-select: none;
+
+			&:before {
+				@include square(24px);
+
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				border: 1px solid var(--gray-500);
+				background-color: var(--white);
+			}
+
+			&:after {
+				@include square(24px);
+
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 50%;
+				transform: translateY(-50%) scale(0);
+				background-image: url('/images/icons/check.svg');
+				transition: transform 0.1s var(--transition-timing-function);
+			}
+
+			&.error:before {
+				border-color: var(--error);
+			}
+		}
+
+		&:checked + label:after {
+			transform: translateY(-50%) scale(1);
+		}
+
+		&:focus + label:before {
+			border-color: var(--primary-800);
+		}
+	}
+
+	&__custom-select {
+		position: relative;
+		width: 100%;
+		user-select: none;
+	}
+
+	&__custom-select-trigger {
+		@extend .form__input;
+
+		cursor: pointer;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+
+		&:after {
+			@include square(10px);
+
+			content: '';
+			position: absolute;
+			right: 30px;
+			top: 20px;
+			display: block;
+			border-left: 2px solid var(--black);
+			border-top: 2px solid var(--black);
+			rotate: 225deg;
+			pointer-events: none;
+
+			@include mobile {
+				right: 20px;
+				top: 10px;
+			}
+		}
+
+		&.is-active {
+			border-color: var(--primary-800);
+		}
+
+		&.is-active:after {
+			transform: rotate(180deg);
+			top: 25px;
+
+			@include mobile {
+				top: 15px;
+			}
+		}
+	}
+
+	&__custom-select-dropdown {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background-color: var(--white);
+		border: 1px solid var(--gray-500);
+		border-top: none;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		z-index: 1;
+		max-height: 200px;
+		overflow-y: auto;
+		display: none;
+
+		&.is-active {
+			display: block;
+		}
+	}
+
+	&__custom-select-option {
+		@include fluid-text(16, 14);
+
+		padding: 10px 25px;
+		cursor: pointer;
+		transition: background-color 0.1s var(--transition-timing-function);
+
+		@include hover {
+			background-color: var(--gray-100);
+		}
+
+		&.is-selected {
+			background-color: var(--gray-100);
+			font-weight: 600;
+		}
+	}
+}

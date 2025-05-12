@@ -1,0 +1,21 @@
+@import 
+	'reset', 
+	'fonts', 
+	'mixins', 
+	'media', 
+	'variables', 
+	'utils', 
+	'globals';
+
+@import
+  'blocks/button',
+  'blocks/swiper',
+	'blocks/header',
+	'blocks/hero',
+	'blocks/booking',
+	'blocks/form',
+	'blocks/rules',
+	'blocks/gallery',
+	'blocks/footer',
+	'blocks/modal'
+;

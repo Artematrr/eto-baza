@@ -1,0 +1,435 @@
+.booking {
+	padding-top: 70px;
+	margin-bottom: var(--section-margin-bottom);
+
+	@include mobile {
+		padding-top: 15px;
+	}
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 330px;
+		gap: 30px;
+
+		@include tablet {
+			grid-template-columns: 1fr 220px;
+		}
+
+		@include mobile {
+			grid-template-columns: 1fr;
+			gap: 15px;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+
+		@include mobile {
+			gap: 15px;
+		}
+	}
+
+	&__title {
+		@include mobile {
+			line-height: 1.35;
+		}
+	}
+
+	&__steps {
+		width: 100%;
+
+		@include mobile {
+			max-width: 90dvw;
+		}
+	}
+
+	&__steps-swiper {
+		max-width: fit-content;
+		margin-inline: unset;
+
+		.swiper-slide {
+			max-width: fit-content;
+
+			@include mobile {
+				&:first-child,
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&__steps-item {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: 15px;
+
+		&.is-active {
+			.booking__steps-item-number {
+				border-color: var(--primary-500);
+			}
+
+			.booking__steps-item-text {
+				color: var(--primary-500);
+			}
+		}
+
+		@include mobile {
+			gap: 5px;
+		}
+	}
+
+	&__steps-item-number {
+		@include flex-center;
+		@include square(42px);
+		@include fluid-text(24, 16);
+
+		font-family: var(--font-family-accent);
+		font-weight: 800;
+		color: var(--primary-500);
+		border-radius: 50%;
+		background-color: var(--white);
+		border: 2px solid var(--white);
+
+		@include mobile {
+			@include square(24px);
+		}
+	}
+
+	&__steps-item-text {
+		@include fluid-text(24, 16);
+
+		font-family: var(--font-family-accent);
+		font-weight: 800;
+		white-space: nowrap;
+	}
+
+	&__price {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		gap: 20px;
+		border-bottom: 1px solid var(--primary-500);
+
+		@include mobile {
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	&__price-group {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+		flex-grow: 1;
+	}
+	&__price-image {
+		@include flex-center;
+		@include square(124px);
+
+		@include desktop {
+			@include square(100px);
+		}
+
+		@include tablet {
+			@include square(82px);
+		}
+	}
+
+	&__cost {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-grow: 1;
+	}
+
+	&__cost-header {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+
+		@include mobile {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__cost-image {
+		@include square(42px);
+	}
+
+	&__cost-title {
+		@include fluid-text(26, 18);
+
+		color: var(--primary-500);
+	}
+
+	&__cost-row {
+		display: grid;
+		grid-template-columns: minmax(140px, 165px) minmax(220px, 350px);
+		align-items: center;
+		gap: 10px;
+
+		@include mobile {
+			grid-template-columns: minmax(100px, 1fr) minmax(180px, 2fr);
+		}
+	}
+
+	&__cost-value-name {
+		@include fluid-text(26, 16);
+		color: var(--black);
+	}
+
+	&__cost-value-value {
+		@include fluid-text(34, 22);
+
+		color: var(--primary-800);
+		font-family: var(--font-family-accent);
+		font-weight: 800;
+		line-height: 1.35;
+
+		@include mobile {
+			text-align: right;
+		}
+	}
+
+	&__schedule {
+		display: flex;
+		flex-direction: column;
+		padding: 30px;
+		max-width: 295px;
+		width: 100%;
+		gap: 6px 10px;
+		background-color: var(--gray-100);
+
+		@include mobile {
+			justify-content: space-between;
+			flex-direction: row;
+			max-width: unset;
+			padding: 10px;
+		}
+	}
+
+	&__schedule-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0 10px;
+
+		@include mobile {
+			flex-direction: column;
+		}
+	}
+
+	&__schedule-icon {
+		@include square(24px);
+	}
+
+	&__schedule-group {
+		display: flex;
+		gap: 10px;
+	}
+
+	&__schedule-name {
+		@include fluid-text(20, 16);
+		color: var(--black);
+	}
+
+	&__schedule-value {
+		@include fluid-text(26, 16);
+
+		color: var(--primary-800);
+		font-family: var(--font-family-accent);
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	&__description {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 0 40px 30px 40px;
+		border-bottom: 1px solid var(--primary-500);
+
+		@include mobile {
+			padding: 0 0 15px 0;
+		}
+	}
+
+	&__description-title {
+		@include fluid-text(24, 18);
+
+		color: var(--primary-500);
+	}
+
+	&__description-list {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__description-item {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+
+		@include mobile {
+			align-items: flex-start;
+		}
+	}
+
+	&__description-icon {
+		@include square(45px);
+
+		@include mobile {
+			@include square(32px);
+		}
+	}
+
+	&__description-text {
+		@include fluid-text(20, 16);
+
+		span {
+			@include fluid-text(16, 14);
+
+			color: var(--gray-500);
+		}
+	}
+
+	&__gallery {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-auto-rows: 306px;
+		gap: 10px;
+
+		@include desktop {
+			grid-auto-rows: auto;
+		}
+		
+		@include mobile {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	&__gallery-item {
+		position: relative;
+		overflow: hidden;
+
+		@include mobile {
+			aspect-ratio: 1;
+		}
+	}
+
+	&__gallery-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform var(--transition-duration)
+			var(--transition-timing-function);
+
+		@include hover {
+			transform: scale(1.05);
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+
+		.form__textarea {
+			min-height: 167px;
+		}
+	}
+
+	&__form-row {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+
+		@include desktop {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+
+	&__form-col {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		flex-grow: 1;
+
+		&:last-child {
+			justify-content: space-between;
+		}
+
+		@include mobile {
+			gap: 10px;
+		}
+	}
+
+	&__form-group {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 15px;
+
+		@include mobile {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+	}
+
+	&__form-label-group {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		.form__label {
+			@include fluid-text(20, 14);
+
+			line-height: 1.35;
+		}
+
+		@include mobile {
+			display: grid;
+			grid-template-columns: minmax(100px, 1fr) minmax(250px, 3fr);
+			align-items: center;
+		}
+
+		@include mobile-s {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__form-checkbox-group {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	&__form-bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+
+		@include mobile {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+		}
+	}
+
+	&__form-button {
+		flex-shrink: 0;
+
+		@include mobile {
+			width: 100%;
+			height: auto;
+			padding: 15px 50px;
+		}
+	}
+}

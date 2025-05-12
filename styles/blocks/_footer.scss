@@ -1,0 +1,466 @@
+.footer {
+	position: relative;
+
+	&__top-wrapper {
+		position: relative;
+
+		@include desktop {
+			padding-inline: 0;
+		}
+	}
+
+	&__top {
+		position: absolute;
+		right: 0;
+		top: -40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 10px;
+		height: 420px;
+		width: 680px;
+		padding: 40px 60px;
+		color: var(--white);
+		background-image: url('/images/address-bg.jpg');
+		background-color: var(--primary-800);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		font-size: 16px;
+		line-height: 1.55;
+
+		b {
+			font-family: var(--font-family-accent);
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 1.55;
+		}
+
+		a {
+			display: inline-flex;
+			gap: 10px;
+
+			@include hover {
+				color: var(--secondary-500);
+
+				* {
+					fill: var(--secondary-500);
+				}
+			}
+		}
+
+		.button {
+			height: var(--input-height-small);
+			padding: 10px 30px;
+
+			@include hover {
+				color: var(--white);
+			}
+		}
+
+		@include desktop {
+			position: relative;
+			top: 0;
+			width: 100%;
+			height: auto;
+			padding: 30px var(--container-padding-x);
+		}
+	}
+
+	&__top-title {
+		color: var(--white);
+	}
+
+	&__wrapper {
+		background-color: var(--black);
+		color: var(--white);
+		padding-block: 48px 52px;
+
+		@include mobile {
+			padding-block: 30px;
+		}
+	}
+
+	&__container {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 30px;
+		height: 100%;
+
+		@include mobile {
+			flex-direction: column;
+			gap: 15px;
+		}
+	}
+
+	&__left-logo {
+		display: none;
+		flex-shrink: 0;
+		width: 180px;
+		height: 105px;
+
+		@include mobile {
+			display: flex;
+		}
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		max-width: 800px;
+		width: 100%;
+
+		@include mobile {
+			gap: 15px;
+			align-items: center;
+		}
+	}
+
+	&__menu {
+		display: flex;
+		gap: 30px;
+		min-height: 218px;
+
+		@include mobile {
+			flex-direction: column;
+			gap: 15px;
+			min-height: auto;
+		}
+	}
+
+	&__nav-wrapper {
+		display: flex;
+		padding-right: 30px;
+		border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+		@include mobile {
+			padding-right: 0;
+			padding-bottom: 15px;
+			border-right: none;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		}
+	}
+
+	&__nav-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 5px 10px;
+
+		@include mobile {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			width: 100%;
+		}
+	}
+
+	&__nav-link {
+		font-family: var(--font-family-accent);
+		font-size: 18px;
+		font-weight: 800;
+		line-height: 1.35;
+
+		@include hover {
+			color: var(--secondary-500);
+		}
+	}
+
+	&__contacts-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 5px;
+		max-width: 400px;
+
+		@include mobile {
+			align-items: center;
+			gap: 15px;
+			max-width: unset;
+		}
+	}
+
+	&__contacts-group {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+	}
+
+	&__contacts-phone {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		@include hover {
+			color: var(--secondary-500);
+			* {
+				fill: var(--secondary-500);
+			}
+		}
+	}
+
+	&__contacts-phone-icon {
+		@include square(17px);
+		@include flex-center;
+	}
+
+	&__contacts-phone-text {
+		font-family: var(--font-family-accent);
+		font-size: 18px;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	&__contacts-links {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	&__contacts-link {
+		@include square(24px);
+		@include flex-center(true);
+
+		@include hover {
+			* {
+				fill: var(--secondary-500);
+			}
+		}
+	}
+
+	&__contacts-link-icon {
+		@include square(24px);
+		@include flex-center(true);
+	}
+
+	&__contacts-email {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		@include hover {
+			color: var(--secondary-500);
+			* {
+				fill: var(--secondary-500);
+			}
+		}
+	}
+
+	&__contacts-email-icon {
+		@include square(17px);
+		@include flex-center(true);
+	}
+
+	&__contacts-email-text {
+		font-family: var(--font-family-accent);
+		font-size: 18px;
+		font-weight: 800;
+		line-height: 1.35;
+	}
+
+	&__contacts-address {
+		display: flex;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	&__contacts-address-icon {
+		@include square(17px);
+		@include flex-center(true);
+	}
+
+	&__contacts-address-text {
+		font-size: 16px;
+		font-family: var(--font-family-base);
+		font-weight: 400;
+	}
+
+	&__button {
+		height: var(--input-height-small);
+		padding: 10px 30px;
+		border-width: 1px;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		width: 100%;
+		min-height: 228px;
+		padding: 30px 33px;
+		border: 2px solid var(--white);
+
+		.form__input {
+			height: var(--input-height-small);
+			padding: 12px 20px;
+			background-color: var(--black);
+			color: var(--white);
+
+			&:focus {
+				border-color: var(--primary-500);
+				outline: none;
+				color: var(--white);
+			}
+
+			&::placeholder {
+				color: var(--white);
+			}
+
+			&.error {
+				&:focus {
+					color: var(--white);
+
+					&::placeholder {
+						color: var(--white);
+					}
+				}
+
+				&::placeholder {
+					color: var(--error);
+				}
+			}
+		}
+
+		@include mobile {
+			gap: 10px;
+			padding: 15px;
+			min-height: auto;
+			max-width: 580px;
+		}
+	}
+
+	&__form-header {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	&__form-title {
+		color: var(--white);
+	}
+
+	&__form-subtitle {
+		font-size: 16px;
+		line-height: 1.55;
+	}
+
+	&__form-bottom {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__form-row {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+
+		@include tablet {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		@include mobile {
+			gap: 10px;
+			align-items: center;
+		}
+	}
+
+	&__form-button {
+		height: var(--input-height-small);
+		padding: 16px 30px;
+	}
+
+	&__form-text {
+		font-size: 12px;
+	}
+
+	&__right {
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		gap: 60px;
+
+		@include desktop {
+			gap: 30px;
+		}
+
+		@include tablet {
+			flex-direction: column-reverse;
+			text-align: right;
+		}
+
+		@include mobile {
+			gap: 15px;
+			text-align: center;
+		}
+	}
+
+	&__bottom-group {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+
+		@include mobile {
+			gap: 15px;
+		}
+	}
+
+	&__copyright {
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	&__dev {
+		display: flex;
+		align-items: center;
+		gap: 10px 15px;
+
+		@include desktop {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		@include tablet {
+			align-items: flex-end;
+		}
+
+		@include mobile {
+			gap: 15px;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	&__dev-text {
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	&__dev-logo {
+		width: 85px;
+		height: 25px;
+	}
+
+	&__bottom-logo {
+		display: flex;
+		flex-shrink: 0;
+		width: 180px;
+		height: 105px;
+
+		@include desktop {
+			width: 140px;
+		}
+
+		@include mobile {
+			display: none;
+		}
+	}
+}
