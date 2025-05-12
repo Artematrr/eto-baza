@@ -11,7 +11,7 @@
 
 	&__top {
 		position: absolute;
-		right: 0;
+		right: var(--container-padding-x);
 		top: -40px;
 		display: flex;
 		flex-direction: column;
@@ -62,6 +62,7 @@
 		@include desktop {
 			position: relative;
 			top: 0;
+			right: 0;
 			width: 100%;
 			height: auto;
 			padding: 30px var(--container-padding-x);
@@ -173,7 +174,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 		gap: 5px;
-		max-width: 400px;
+		max-width: 345px;
 
 		@include mobile {
 			align-items: center;

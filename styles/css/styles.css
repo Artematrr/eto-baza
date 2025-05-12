@@ -2151,7 +2151,7 @@ h4 {
 }
 .footer__top {
   position: absolute;
-  right: 0;
+  right: var(--container-padding-x);
   top: -40px;
   display: flex;
   flex-direction: column;
@@ -2214,6 +2214,7 @@ h4 {
   .footer__top {
     position: relative;
     top: 0;
+    right: 0;
     width: 100%;
     height: auto;
     padding: 30px var(--container-padding-x);
@@ -2328,7 +2329,7 @@ h4 {
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
-  max-width: 400px;
+  max-width: 345px;
 }
 @media (max-width: 767px) {
   .footer__contacts-list {
