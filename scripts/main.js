@@ -1,52 +1,85 @@
-var projectSwiper = new Swiper('.hero__swiper', {
-slidesPerView: 1,
-spaceBetween: 50,
-effect: 'fade',
-keyboard: {
-	enabled: true,
-},
-navigation: {
-	prevEl: '.hero__swiper-button-prev',
-	nextEl: '.hero__swiper-button-next',
-},
+// swipers
+var heroReviewsSwiper = new Swiper('.hero__swiper', {
+	slidesPerView: 1,
+	spaceBetween: 50,
+	effect: 'fade',
+	keyboard: {
+		enabled: true,
+	},
+	navigation: {
+		prevEl: '.hero__swiper-button-prev',
+		nextEl: '.hero__swiper-button-next',
+	},
 })
 
-var projectSwiper = new Swiper('.booking__steps-swiper', {
-slidesPerView: "auto",
-spaceBetween: 15,
-freeMode: true,
-mousewheel: true,
-breakpoints: {
-	768: {
-		spaceBetween: 5,
+var bookingStepsSwiper = new Swiper('.booking__steps-swiper', {
+	slidesPerView: "auto",
+	spaceBetween: 15,
+	freeMode: true,
+	mousewheel: true,
+	breakpoints: {
+		768: {
+			spaceBetween: 3,
+		},
 	},
-},
 })
 
-var activitiesSwiper = new Swiper('.hero__bottom-swiper', {
-loop: true,
-slidesPerView: 1,
-spaceBetween: 15,
-freeMode: true,
-speed: 6000,
-centeredSlides: true,
-// allowTouchMove: false,
-autoplay: {
-	delay: 0,
-	disableOnInteraction: false,
-	pauseOnMouseEnter: true,
-},
+var bookingGallerySwiper = new Swiper('.booking__gallery-swiper', {
+	slidesPerView: 4,
+	direction: 'horizontal',
+	spaceBetween: 10,
+	mousewheel: true,
+	breakpoints: {
+		1023: {
+			slidesPerView: 4,
+			direction: 'vertical',
+		},
+		768: {
+			slidesPerView: 5,
+			direction: 'vertical',
+		},
+		520: {
+			slidesPerView: 3,
+			direction: 'horizontal',
+		},
+		460: {
+			slidesPerView: 2,
+			direction: 'horizontal',
+		},
+		320: {
+			slidesPerView: 1,
+			direction: 'horizontal',
+		}
+	},
+	navigation: {
+		prevEl: '.booking__gallery-button-prev',
+		nextEl: '.booking__gallery-button-next',
+	},
+})
 
-breakpoints: {
-	520: {
-		slidesPerView: 2,
-		spaceBetween: 10,
+var heroActivitiesSwiper = new Swiper('.hero__bottom-swiper', {
+	loop: true,
+	slidesPerView: 1,
+	spaceBetween: 15,
+	freeMode: true,
+	speed: 6000,
+	centeredSlides: true,
+	// allowTouchMove: false,
+	autoplay: {
+		delay: 0,
+		disableOnInteraction: false,
+		pauseOnMouseEnter: true,
 	},
-	768: {
-		slidesPerView: 'auto',
-		spaceBetween: 15,
+	breakpoints: {
+		520: {
+			slidesPerView: 2,
+			spaceBetween: 10,
+		},
+		768: {
+			slidesPerView: 'auto',
+			spaceBetween: 15,
+		},
 	},
-},
 })
 
 jQuery(document).ready(function ($) {
@@ -110,6 +143,22 @@ jQuery(document).ready(function ($) {
 			.catch(err => {
 				console.error('Ошибка при копировании: ', err);
 			});
+	});
+
+	// gallery show more
+	$('.js-gallery-show-more').on('click', function() {
+		const $galleryGrid = $('.gallery__grid');
+		const $button = $(this);
+		const headerHeight = $('.header').innerHeight()
+		
+		if($galleryGrid.hasClass('is-expanded')) {
+			$galleryGrid.removeClass('is-expanded');
+			$button.text('Показать все фото');
+			window.scrollTo(0, $('.gallery').offset().top - headerHeight);
+		} else {
+			$galleryGrid.addClass('is-expanded');
+			$button.text('Скрыть');
+		}
 	});
 
 	// form validation
@@ -331,8 +380,5 @@ jQuery(document).ready(function ($) {
 			$('.form__custom-select-trigger').removeClass('is-active');
 		}
 	});
-	
-
-
 })
 
