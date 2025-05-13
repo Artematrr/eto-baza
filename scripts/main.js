@@ -60,26 +60,26 @@ jQuery(document).ready(function ($) {
 		awaitCloseAnimation: true
 	});
 
-	$('.js-modal-callback').on('click touchend', function(e) {
+	$('.js-modal-callback').on('click', function(e) {
 		e.preventDefault();
 		MicroModal.show('modal-callback');
 	});
 
 	// mobile menu
-	$('.js-burger').on('click touchend', function () {
+	$('.js-burger').on('click', function () {
 		$(this).toggleClass('is-active')
 		$('.js-mobile-menu').toggleClass('is-open')
 		$('body').toggleClass('no-scroll')
 	})
 
-	$('.header__mobile-menu-nav-link').on('click touchend', function () {
+	$('.header__mobile-menu-nav-link').on('click', function () {
 		$('.js-burger').removeClass('is-active')
 		$('.js-mobile-menu').removeClass('is-open')
 		$('body').removeClass('no-scroll')
 	})
 
 	// copy address to clipboard
-	$('.js-copy-clipboard').on('click touchend', function(e) {
+	$('.js-copy-clipboard').on('click', function(e) {
 		e.preventDefault();
 		
 		const textToCopy = $(this).data('copy');
@@ -296,13 +296,13 @@ jQuery(document).ready(function ($) {
 	});
 	
 	// form custom select 
-	$('.form__custom-select-trigger').on('click touchend', function() {
+	$('.form__custom-select-trigger').on('click', function() {
 		const parent = $(this).closest('.form__custom-select');
 		parent.find('.form__custom-select-dropdown').toggleClass('is-active');
 		$(this).toggleClass('is-active');
 	});
 	
-	$('.form__custom-select-option').on('click touchend', function() {
+	$('.form__custom-select-option').on('click', function() {
 		const value = $(this).data('value');
 		const text = $(this).text();
 		const parent = $(this).closest('.form__custom-select');
@@ -325,7 +325,7 @@ jQuery(document).ready(function ($) {
 		parent.find('.form__custom-select-trigger').removeClass('is-active');
 	});
 	
-	$(document).on('click touchend', function(e) {
+	$(document).on('click', function(e) {
 		if (!$(e.target).closest('.form__custom-select').length) {
 			$('.form__custom-select-dropdown').removeClass('is-active');
 			$('.form__custom-select-trigger').removeClass('is-active');
